@@ -1,7 +1,7 @@
 trigger:
 - main
 
-pool: poolagent
+pool: agentpool
 
 steps:
 - task: TerraformInstaller@1
