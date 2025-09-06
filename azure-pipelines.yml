@@ -1,0 +1,21 @@
+trigger:
+- main
+
+pool:
+  name: agentpool
+
+steps:
+- task: TerraformInstaller@1
+  inputs:
+    terraformVersion: 'latest'
+
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
+    backendServiceArm: 'service1'
+    backendAzureRmResourceGroupName: 'rg-new'
+    backendAzureRmStorageAccountName: 'rg-stg'
+    backendAzureRmContainerName: 'cont'
+    backendAzureRmKey: 'terrraform.tfstate'
+
