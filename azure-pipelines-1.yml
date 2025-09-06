@@ -1,0 +1,36 @@
+trigger:
+- main
+
+pool: poolagent
+
+steps:
+- task: TerraformInstaller@1
+  displayName: terraform intstaller
+  inputs:
+    terraformVersion: 'latest'
+
+- task: TerraformTask@5
+  displayName: terraform init
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
+    backendServiceArm: 'service1'
+    backendAzureRmResourceGroupName: 'rg-new'
+    backendAzureRmStorageAccountName: 'rg-stg'
+    backendAzureRmContainerName: 'cont'
+    backendAzureRmKey: 'terraform.tfstate'
+
+- task: TerraformTask@5
+  displayName: terraform plan
+  inputs:
+    provider: 'azurerm'
+    command: 'plan'
+    environmentServiceNameAzureRM: 'service1'
+
+- task: TerraformTask@5
+  displayName: terraform apply
+  inputs:
+    provider: 'azurerm'
+    command: 'apply'
+    commandOptions: '-auto-appove'
+    environmentServiceNameAzureRM: 'service1'
