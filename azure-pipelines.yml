@@ -99,7 +99,7 @@ stages:
             provider: 'azurerm'
             command: 'init'
             workingDirectory: '$(working-path)'
-            backendServiceArm: 'jay'
+            backendServiceArm: 'service1'
             backendAzureRmResourceGroupName: 'jaydeep_rg'
             backendAzureRmStorageAccountName: 'jaydeepsa'
             backendAzureRmContainerName: 'tfstate'
