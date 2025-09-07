@@ -41,7 +41,7 @@ resource "azurerm_linux_virtual_machine" "fevm" {
     name = var.vm_name
     resource_group_name = azurerm_resource_group.frontend.name
     location = azurerm_resource_group.frontend.location
-    size = "Standard_B4ms"
+    size = "Standard_B1s"
     admin_username = "admin2025"
     admin_password = var.fe_pass
     network_interface_ids = [azurerm_network_interface.fenic.id]

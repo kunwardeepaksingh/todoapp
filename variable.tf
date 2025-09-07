@@ -6,4 +6,7 @@ variable nic_name {}
 variable ip_name {}
 variable public_ip_name {}
 variable vm_name {}
-variable fe_pass {}
+variable fe_pass {
+    type = string
+    default = admindeepak123
+}
